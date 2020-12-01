@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+    text-size-adjust: center;
+  }
+/* use flex */
+#container{
+    display:flex;
+    flex-wrap: wrap;
+
+}
+/* show 4 pics per line */
+#container div{
+    width: 25%;
+
+}
+#container div img{
+    width: 100%; 
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
