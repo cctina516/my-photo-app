@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/form.css">
-    <script defer src="../js/formValidation.js"></script>
+    <link rel="stylesheet" type="text/css" href="../public/css/form.css">
+    <script defer src="../public/js/formValidation.js"></script>
+
     <title>Registrition</title>
 </head> 
 <body>
@@ -12,13 +13,16 @@
     <header>
         <h1>Registration Form</h1>
     </header>
-    <form action="/action_page.php"> 
+    {{!-- <form class="form-reg" method="POST" action="/action_page.php">  --}}
+    <form class="form-reg" method="POST" action="/users/register" 
+    enctype="application/x-www-form-urlencoded"> 
+
         <fieldset>
             <!-- <legend>Registration Form</legend> -->
             <label>User Name</label>
-            <input id = "username" class = "text-input reg-input-username" required=" "type="text"
+            <input id = "username" class = "text-input reg-input-username" type="text"
             pattern="[A-Za-z].{3,}" title="Three or more characters"
-            placeholder="User Name" >
+            placeholder="User Name" name="username" required>
             <br />
             <label>Email</label>
             <input id = "email" class = "text-input reg-input-email" required=" "type="email"
