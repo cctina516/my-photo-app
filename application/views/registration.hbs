@@ -25,17 +25,17 @@
             placeholder="User Name" name="username" required>
             <br />
             <label>Email</label>
-            <input id = "email" class = "text-input reg-input-email" required=" "type="email"
-            placeholder="Email">
+            <input id = "email" class = "text-input reg-input-email" type="email"
+            placeholder="Email" required name ="email">
             <br />
             <label>Password</label>
-            <input id = "password" class = "text-input reg-input-password" required=" "type="text"
+            <input id = "password" class = "text-input reg-input-password" type="text"
             pattern="(?=.*\d)(?=.*[A-Z])(?=.*[/*-+!@#$^&*]).{8,}" title="Must contain at least one number and one uppercase letter, and at least 8 or more characters"
-            placeholder="Password" onkeyup='check();'>
+            placeholder="Password" onkeyup='check();' required name ="password">
             <br />
             <label>Confirm Password</label>
-            <input id = "cpassword" class = "text-input reg-input-cpassword" required=" "type="text"
-            placeholder="Comfirm Password" onkeyup='check();'>
+            <input id = "cpassword" class = "text-input reg-input-cpassword" type="text"
+            placeholder="Comfirm Password" onkeyup='check();' required name ="cpassword">
             <!-- <span id='message'></span> -->
         </fieldset>
    

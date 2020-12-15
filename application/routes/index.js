@@ -4,15 +4,19 @@ var router = express.Router();
 /* GET home page. */
 //localhost:3000
 router.get('/', function(req, res, next) {
-  res.render('index', {name: "Chuting Yan"});
+  res.render('index', {title: "Photo App"});
 });
 
 router.get('/login', function(req, res, next) {
-  res.render('login');
+  res.render('login', {title:"Log In"});
 });
 
 router.get('/registration', function(req, res, next) {
-  res.render('registration');
+  res.render('registration', {title:"Register"});
+});
+
+router.get('/postimage', function(req, res, next) {
+  res.render('postimage', {title:"Post an Image"});
 });
 
 // router.post('/', (req, res, next) => {

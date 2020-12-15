@@ -8,6 +8,7 @@ var handlebars = require('express-handlebars');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var dbRouter = require('./routes/dbtest');
+// var loginRouter = require('./views/login'); //
 
 var errorPrint = require('./helpers/debug/debugprinters').errorPrint;
 var requestPrint = require('./helpers/debug/debugprinters').requestPrint;
@@ -34,7 +35,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use("/public", express.static(path.join(__dirname, 'public')));
 
-
 app.use((req, res, next) => { // call next to move to next function
     requestPrint(req.url); // print URL other request coming in 
     next();
@@ -43,7 +43,11 @@ app.use((req, res, next) => { // call next to move to next function
 app.use('/', indexRouter); // localhost:3000
 app.use('/dbtest', dbRouter);
 app.use('/users', usersRouter);
+// app.use('/login', loginRouter); //
 
+// app.get('/', function(req, res) {
+//     res.redirect('/login');
+// })
 app.use((err, req, res, next) => {
     res.status(500);
     res.send('something went wrong with your db');
