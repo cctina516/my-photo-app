@@ -15,20 +15,27 @@
         <h1>Login Form</h1>
     </header>
 
-    <form>
+    <form id="login-form" class="form-login" method="POST" action="/users/login"
+    enctype="application/x-www-form-urlencoded">
         <div>
         <label for="username">User Name</label>
-        <input type="text" name="username"/>
+        <input type="text" name="username" id="username" placeholder="Username"
+         required/>
         </div>
         <br />
         <div>
         <label for="password">Password</label>
-        <input type="password" name="password"/>
+        <input type="password" id="password" name="password" placeholder="Password" 
+        required/>
         </div>
         <br />
-        <div class ="submit">
-        <input type="submit" value="Submit">
-        </div>
+        <button id="submit" class="btn btn-success login-submit form-buttom" 
+        type="submit">Submit</button>
+        {{!-- <div class ="submit">
+        <input type="submit" id="submit" value="Submit">
+        </div> --}}
+        <button id="cancel" class="btn btn-danger login-reset form-buttom" 
+        type="reset">Clear</button>
 
     </form>
     </div>

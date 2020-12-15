@@ -3,10 +3,12 @@ const mysql = require('mysql2');
 const pool = mysql.createPool({
     connectionLimit: 50,
     host: 'localhost',
-    user: 'photoapp',
+    user: 'root',
     password: 'ABC123yoyo',
-    database: 'csc317db',
-    //debug: true,
+    database:"csc317db",
+    connectionLimit: 50,
+    waitForConnection: true,
+    debug: true,
 
 });
 

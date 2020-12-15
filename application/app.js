@@ -43,16 +43,12 @@ app.use((req, res, next) => { // call next to move to next function
 app.use('/', indexRouter); // localhost:3000
 app.use('/dbtest', dbRouter);
 app.use('/users', usersRouter);
-// app.use('/login', loginRouter); //
 
-// app.get('/', function(req, res) {
-//     res.redirect('/login');
-// })
 app.use((err, req, res, next) => {
-    res.status(500);
-    res.send('something went wrong with your db');
-    // console.log(err);
-    // res.render('error', {err_message: err})
+    // res.status(500);
+    // res.send('something went wrong with your db');
+    console.log(err);
+    res.render('error', {err_message: err})
 }); //middleware function
 
 //error function
