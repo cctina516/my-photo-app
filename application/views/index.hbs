@@ -1,41 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" type="text/css" href="../public/css/home.css">
+    {{!-- <link rel="stylesheet" type="text/css" href="../public/css/home.css"> --}}
+    <link rel="stylesheet" type="text/css" href="../public/css/form.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"></script>
-    <script defer src="../public/js/samplejs.js"></script>
+    {{!-- <script defer src="../public/js/samplejs.js"></script> --}}
+    <script defer src="../public/js/frontend.js"></script>
 </head>
-<body>  
+
+<body>
+    <div id="container">
+        <div class="jumbotron text-center">
+        <h1 class="display-4">Photo App</h1>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        </p>
+        </div>
+    {{log this}}
+    {{#if (emptyObject messages)}}
+    {{> flashmessage}}
+    {{/if}}
+
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+        
+    </nav>
+
     <div class="login">
-    <input type="button" value="Login" onclick="location.href='/login' "> 
+        <input type="button" value="Login" onclick="location.href='/login' ">
     </div>
     <div class="register">
-    <input type="button" value="Register" onclick="location.href='/registration' "> 
+        <input type="button" value="Register" onclick="location.href='/registration' ">
     </div>
     <a href="/postimage" id="post-button" class="nav-items anchor-buttons">Post</a>
 
+
+
+
+    </div>
+    {{!-- <div class="jumbotron text-center">
+        <h1 class="display-4">Photo App</h1>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        </p>
+    </div>
+
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+        
+    </nav> --}}
+
+
+    {{!-- <div class="login">
+        <input type="button" value="Login" onclick="location.href='/login' ">
+    </div>
+    <div class="register">
+        <input type="button" value="Register" onclick="location.href='/registration' ">
+    </div>
+    <a href="/postimage" id="post-button" class="nav-items anchor-buttons">Post</a> --}}
+
     {{#if logged}}
-        <script>
-           let ele = document.getElementById('logout-button');
-           uf(ele){
-               ele.onclick = (even) => {
-                   fetch('/user/logout', {
-                       method:"POST"
-                   })
-                   .then((data) => {
-                       location.replace('/');
-                   })
-               }
-           } 
-        </script>
+    <script>
+        let ele = document.getElementById('logout-button');
+        uf(ele){
+            ele.onclick = (even) => {
+                fetch('/user/logout', {
+                    method: "POST"
+                })
+                    .then((data) => {
+                        location.replace('/');
+                    })
+            }
+        } 
+    </script>
     {{/if}}
     <h1 id="items-count"></h1>
-     <h1 id="name">Photo App</h1>
-    <div id="container"></div>
+    {{!-- <div id="container"></div> --}}
 
 </body>
+
 </html>

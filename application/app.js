@@ -27,7 +27,10 @@ app.engine(
         extname: ".hbs",
         defaultLayout: "home",
         helpers: {
-            // if need more helpers you can register them here
+            emptyObject:(obj) => {
+                return !(obj.constructor === Object && Object.keys(obj).length == 0)
+            }
+            
         }
     })
 );

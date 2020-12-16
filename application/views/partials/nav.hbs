@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    {{!-- <link rel="stylesheet" type="text/css" href="../public/css/home.css"> --}}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"></script>
+    <script defer src="../public/js/samplejs.js"></script>
+</head>
+
+
+
+
+<nav id="nav-bar">
+    <div id="brand" class="nav-items">
+        <a href="/" id="brand-anchor"><span id="brand-text"><i style="margin-right: .2rem;">i</i>i>PA</i></span></a>
+    </div>
+    <input id="search-text" name="search-text" type="text">
+    <i id="text-bar-icon" class="fas fa-search nav-items"></i>
+    <a href="/postimage" id="post-button" class="nav-items anchor-buttons">Post</a>
+
+    {{#if logged}}
+    <a id="logout-button" class="authenticate-button nav-items anchor-buttons">Log Out</a>
+    {{else}}
+    <a href="/login" id="login-button" class="authenticate-button nav-items anchor-buttons">Log In</a>
+
+</nav>

@@ -41,6 +41,18 @@ form>label{
     grid-auto-rows: 1fr;
 
 }
+
+#flash-message{
+  position: fixed;
+  left: 50%;
+  top: 25%;
+  transform: translate(-50%,0);
+}
+
+#flash-message div{
+  text-align: center;
+
+}
 header, form, section, h3{
     grid-column: 1/span 2;
     width: auto;
