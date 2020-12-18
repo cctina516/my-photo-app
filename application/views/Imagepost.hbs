@@ -7,8 +7,32 @@
     <title>Image Post</title>
 </head>
 <body>
-    <div class="grid-container">
-    <header>
+    <div id="post-container" class="grid-container">
+        <img id="image-post-image" src="/{{currentPost.photopath}}">
+        <div id="info-message-grid">
+            <div id="info">
+                <header id="image-post-title">
+                    <h2 id="image-post-title-text">{{currentPost.title}}</h2>
+                </header>
+                <div id="image-post-author" class="info-tags">{{currentPost.username}}</div>
+                <div id="image-post-date" class="info-tags">{{currentPost.created}}</div>
+                <div id="image-post-desc" class="info-tags">{{currentPost.description}}</div>
+
+            </div>
+            <div id="message">
+                <header id="commit-title">
+                    <h2>Comments</h2>
+                </header>
+                <div id="message-list">
+
+                </div>
+                <div id="comment-box">
+                    <textarea id="comment-box-text"></textarea>
+                    <i id="comment-box-button" class="fa fa-comment" aria-hidden="true" sytle="text-align: center;"></i>
+                </div>
+            </div>
+        </div>
+    {{!-- <header>
         <h1>Image Post</h1>
     </header>
     <form>
@@ -24,7 +48,7 @@
     <section>
         <label>Post's Image</label>
     </section>
-    </form>
+    </form> --}}
     </div>
 </body>
 </html>

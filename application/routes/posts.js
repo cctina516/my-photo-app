@@ -25,7 +25,7 @@ router.post('/createPost', uploader.single("uploadImage"), (req, res, next) => {
     let fileAsThumbnail = `thumbnail-${req.file.filename}`;
     let destinationOfThumbnail = req.file.destination + "/" + fileAsThumbnail;
     let title = req.body.title;
-    let desc = req.body.description;
+    let description = req.body.description;
     let fk_userId = req.session.userId;
 
     // do server validation on your own 
@@ -38,7 +38,7 @@ router.post('/createPost', uploader.single("uploadImage"), (req, res, next) => {
     .resize(200)
     .toFile(destinationOfThumbnail)
     .then(() => {
-        let baseSQL = 'INSERT INTO posts (title, description, photopath, thumnail, fk_userid VALUE(?,?,?,?,now(),?);;';
+        let baseSQL = 'INSERT INTO posts (title, description, photopath, thumbnail, created, fk_userid) VALUE(?,?,?,?,now(),?);;';
         return db.execute(baseSQL, [title, description, fileUploaded, destinationOfThumbnail, fk_userId]);
 
     })
