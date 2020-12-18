@@ -12,6 +12,7 @@ var handlebars = require('express-handlebars');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var dbRouter = require('./routes/dbtest');
+var postsRouter = require('./routes/posts');
 // var loginRouter = require('./views/login'); //
 
 var errorPrint = require('./helpers/debug/debugprinters').errorPrint;
@@ -51,9 +52,6 @@ app.use(sessions({
 }));
 
 app.use(flash());
-
-
-
 app.set("view engine", "hbs");
 app.use(logger('dev'));
 app.use(express.json());
@@ -77,6 +75,7 @@ app.use((req, res, next) => {
 app.use('/', indexRouter); // localhost:3000
 app.use('/dbtest', dbRouter);
 app.use('/users', usersRouter);
+app.use('/posts', postsRouter);
 
 app.use((err, req, res, next) => {
     // res.status(500);
