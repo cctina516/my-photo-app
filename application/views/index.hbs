@@ -24,6 +24,8 @@
         <div id="banner-icon"><i class="banner-flex-item fa fa-camera-retro" aria-hidden="true"></i></div>
         <span id="banner-text" class="banner-flex-item">Photo App</span>
     </div> --}}
+
+    
     <nav id="nav-bar">
         <div id="brand" class="nav-items">
             <a href='/' id="brand-anchor"><span id="brand-text"><i style="margin-right: .2rem;"></i>Home</span></a>
@@ -36,7 +38,6 @@
   <li class="nav-item">
     <a class="btn btn-primary btn-md" href='/' role="button">Home</a>
   </li>
-  <input id="search-text" name="search-text" type-"text">
         
   <li class="nav-item">
     <a class="btn btn-primary btn-md" href='/login' role="button">Login</a>
@@ -44,9 +45,10 @@
   <li class="nav-item">
     <a class="btn btn-primary btn-md" href='/postimage' role="button">Post</a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link disabled" href="#">Disabled</a>
-  </li>
+  <form class="form-inline my-2 my-lg-0">
+      <input id="search-text" name="search-text" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button id="search-button" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
 </ul>
 
     {{log this}}
@@ -77,14 +79,14 @@
     {{> flashmessage}}
     {{/if}} --}}
 
-    <div class="login">
+    {{!-- <div class="login">
         <input type="button" value="Login" onclick="location.href='/login' ">
     </div>
     <div class="register">
         <input type="button" value="Register" onclick="location.href='/registration' ">
     </div>
    
-    <a href="/postimage" id="post-button" class="nav-items anchor-buttons">Post</a>
+    <a href="/postimage" id="post-button" class="nav-items anchor-buttons">Post</a> --}}
 
     <div id="container">
 
