@@ -3,23 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {{!-- <link rel="stylesheet" type="text/css" href="../public/css/form.css"> --}}
+    <link rel="stylesheet" type="text/css" href="../public/css/form.css">
     {{!-- <script defer src="../routes/index.js"></script> --}}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
     <title>Login</title>
 </head>
 <body>
-    <div class="grid-container">
 
         <div id="container">
         <div class="jumbotron text-center">
         <h1 class="display-4">Photo App</h1>
-        <p class="lead">
-            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-        </p>
-    </div>
+        </div>
 
+    <div class="grid-container">
     <header>
         <h1>Login Form</h1>
     </header>
@@ -39,12 +36,16 @@
         </div>
         <br />
         <button id="submit" class="btn btn-success login-submit form-buttom" 
-        type="submit">Submit</button>
+        type="submit">Login</button>
         {{!-- <div class ="submit">
         <input type="submit" id="submit" value="Submit">
         </div> --}}
         <button id="cancel" class="btn btn-danger login-reset form-buttom" 
         type="reset">Clear</button>
+
+        <a href='/registration'>Register</a>
+
+
 
     </form>
     </div>
