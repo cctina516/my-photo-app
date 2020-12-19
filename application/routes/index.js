@@ -28,7 +28,7 @@ router.get('/post/:id(\\d+)', (req, res, next) => {
   FROM users u \
   JOIN posts p \
   ON u.id=fk_userid \
-  WHERE p.id=25;";
+  WHERE p.id=?;";
 
   let postId = req.params.id;
 

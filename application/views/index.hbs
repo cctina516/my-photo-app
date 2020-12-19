@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" type="text/css" href="../public/css/home.css">
-    <link rel="stylesheet" type="text/css" href="../public/css/form.css">
+    {{!-- <link rel="stylesheet" type="text/css" href="../public/css/form.css"> --}}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"></script>
@@ -28,8 +28,6 @@
         <div id="brand" class="nav-items">
             <a href='/' id="brand-anchor"><span id="brand-text"><i style="margin-right: .2rem;"></i>Home</span></a>
         </div>
-        <input id="search-text" name="search-text" type-"text">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         
     </nav>
             <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
@@ -38,6 +36,8 @@
   <li class="nav-item">
     <a class="btn btn-primary btn-md" href='/' role="button">Home</a>
   </li>
+  <input id="search-text" name="search-text" type-"text">
+        
   <li class="nav-item">
     <a class="btn btn-primary btn-md" href='/login' role="button">Login</a>
   </li>
@@ -49,12 +49,33 @@
   </li>
 </ul>
 
-        
-    </div>
     {{log this}}
     {{#if (emptyObject messages)}}
     {{> flashmessage}}
     {{/if}}
+
+       {{#if logged}}
+    <script>
+        let ele = document.getElementById('logout-button');
+        uf(ele){
+            ele.onclick = (even) => {
+                fetch('/user/logout', {
+                    method: "POST"
+                })
+                    .then((data) => {
+                        location.replace('/');
+                    })
+            }
+        } 
+    </script>
+    {{/if}}
+
+        
+    </div>
+    {{!-- {{log this}}
+    {{#if (emptyObject messages)}}
+    {{> flashmessage}}
+    {{/if}} --}}
 
     <div class="login">
         <input type="button" value="Login" onclick="location.href='/login' ">
@@ -70,6 +91,8 @@
         {{#each results}}
             {{> card this}}
         {{/each}}
+
+    
             
 
     </div>
@@ -96,7 +119,7 @@
         <input type="button" value="Register" onclick="location.href='/registration' ">
     </div>
     <a href="/postimage" id="post-button" class="nav-items anchor-buttons">Post</a> --}}
-
+{{!-- 
     {{#if logged}}
     <script>
         let ele = document.getElementById('logout-button');
@@ -111,7 +134,7 @@
             }
         } 
     </script>
-    {{/if}}
+    {{/if}} --}}
     <h1 id="items-count"></h1>
     {{!-- <div id="container"></div> --}}
 
