@@ -2,10 +2,13 @@
     box-sizing: border-box;
     text-size-adjust: center;
   }
+
 /* use flex */
 #container{
     display:flex;
     flex-wrap: wrap;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
 
 }
 /* show 4 pics per line */
@@ -76,4 +79,115 @@ div[class=card-body] > a[class=card-button]{
 }
 #flash-message div{
     text-align: center;
+}
+#post-container{
+    grid-area: content;
+    padding-top: .35em;
+    padding-bottom: .35em;
+    display: grid;
+    grid-gap: .2rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    margin: 1em;
+    grid-template-areas:
+    "photoinfo comments";
+}
+
+#photo-container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    grid-area: photoinfo;
+
+}
+#post-info{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+div[id=post-info] > p{
+    margin-bottom: .2em;
+}
+
+div[post-container] > div[id^=post-]{
+    flex-grow: 0;
+    flex-shrink: 1;
+}
+div[post-container] > imd[id^=post-]{
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+
+#comment-container{
+    display: grid;
+    justify-self: stretch;
+    grid-area: comments;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 75px;
+    gap: .2rem;
+    grid-template-areas:
+    "messages"
+    "comment-box";
+    max-height: 80vh;
+    
+}
+
+#messages {
+    grid-area: messages;
+    overflow: auto;
+    display: flex;
+    flex-flow: column-reverse nowrap;
+    scroll-behavior: smooth;
+    border: 1px solid #cccccc;
+    box-shadow: -2px 2px 4px 4px #e0e0e0;
+    border-radius: .35rem;
+}
+
+div[id^=message-]{
+    display: grid;
+    grid-template-rows: .3fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: .2em;
+    padding: .25rem;
+    margin: .2rem;
+    font-size: 1rem;
+    border: .0625rem solid #ced4da;
+    border-radius: .25rem;
+    grid-template-areas:
+    "author created"
+    "comment comment";
+}
+
+.author-text{
+    grid-area: author;
+    justify-self: start;
+    color: blue
+
+}
+
+.comment-text{
+    grid-area: comment;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 60px;
+    min-height: 60px;
+
+}
+
+
+.date-posted{
+    grid-area: created;
+    justify-self: end;
+
+}
+
+#comment-box{
+    padding: .20rem;
+    display: flex;
+    background-color: #232f3e;
+    grid-area: comment-box;
+    border-radius: .35rem;
+    margin: .5rem;
+
 }

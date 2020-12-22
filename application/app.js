@@ -6,6 +6,7 @@ var sessions =require('express-session');
 var mysqlSession = require('express-mysql-session')(sessions);
 var flash = require('express-flash');
 
+
 //import express handlebars
 var handlebars = require('express-handlebars');
 
@@ -13,6 +14,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var dbRouter = require('./routes/dbtest');
 var postsRouter = require('./routes/posts');
+var commentRouter = require('./routes/comments');
 // var loginRouter = require('./views/login'); //
 
 var errorPrint = require('./helpers/debug/debugprinters').errorPrint;
@@ -76,6 +78,7 @@ app.use('/', indexRouter); // localhost:3000
 app.use('/dbtest', dbRouter);
 app.use('/users', usersRouter);
 app.use('/posts', postsRouter);
+app.use('/comments', commentRouter);
 
 app.use((err, req, res, next) => {
     // res.status(500);
