@@ -1,6 +1,6 @@
 // var db = require('../config/database');
 const {getNRecentPosts, getPostById} = require('../models/Posts');
-const {getCommentsForPost} = require('../models/comments');
+const {getCommentsForPost} = require('../models/comemnts');
 const postMiddleware = {}
 
 postMiddleware.getRecentPosts = async function(req, res, next){

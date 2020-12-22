@@ -16,7 +16,7 @@ function setFlashMessageFadeOut(flashMessageElement){
     }, 4000);
 }
 
-function addFlashFromFrontEnd(message){
+function addFlashFromFrontEnd(message, level){
     let flashMessageDiv = document.createElement('div');
     let innerFlashDiv = document.createElement('div');
     let innerTextNode = document.createTextNode(message);
