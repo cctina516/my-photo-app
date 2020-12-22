@@ -188,6 +188,32 @@ div[id^=message-]{
     background-color: #232f3e;
     grid-area: comment-box;
     border-radius: .35rem;
-    margin: .5rem;
 
+
+}
+#comment-box-text{
+    flex-grow: 8;
+    padding: .25rem;
+    margin: .25rem;
+    border: .0625rem solid white;
+    border-radius: .35rem;
+    background-color: white;
+    resize: none;
+}
+
+#comment-box-button{
+    padding: 1em;
+    margin: .2em;
+    line-height: 2;
+    background-color: #232f3e;
+    color: white;
+    font-size: 1.5rem;
+    border: .0625rem solid white;
+    border-radius: .35rem;
+    cursor: pointer;
+}
+
+#comment-box-button:hover{
+    background-color: white;
+    color: #232f3e;
 }
