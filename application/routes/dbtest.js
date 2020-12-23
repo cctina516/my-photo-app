@@ -2,9 +2,6 @@ const express = require('express');
 const router = express.Router();
 const db = require('../conf/database'); //getting the pool from db class
 
-
-
-
 router.get('/getAllUsers', (req, res, next) => {
     db.query('SELECT * from users;', (err, results, fields) => {
         if(err){

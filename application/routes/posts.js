@@ -75,14 +75,14 @@ router.get("/search", async(req,res,next) => {
         let searchTerm = req.query.search;
         if(!searchTerm){
             res.send({
-                message: "No search team given",
+                message: "No search term given",
                 results: [],
             });
         }else{
             let results = await PostModel.search(searchTerm);
             if(results.length){
                 res.send({
-                    message: `${results.lenght} results found`,
+                    message: `${results.length} results found`,
                     results: results,
                 });
             }else{

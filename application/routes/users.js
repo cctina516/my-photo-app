@@ -141,20 +141,7 @@ router.post("/login", (req, res, next) => {
   // do server side validation
   // not done in video must do here
   UserModel.authenticate(username, password)
-/*
-  let baseSQL = "SELECT id, username, password FROM users WHERE username=? ;"
-  let userId;
-  db.execute(baseSQL, [username])
-  .then(([results, fields]) => {
-    if(results && results.length == 1){
-      let hashedPassword = results[0].password;
-      userId = results[0].id;
-      return bcrypt.compare(password, hashedPassword); 
-    }else{
-      throw new UserError("invalid username and/or password!", "/login", 200);
-    }
-  })
-  */
+
   .then((loggedUserId) => {
     if(loggedUserId > 0){
       successPrint(`User ${username} is logged in`);

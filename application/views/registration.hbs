@@ -1,62 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../public/css/form.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script defer src="../public/js/formValidation.js"></script>
 
+
     <title>Registrition</title>
-</head> 
+</head>
+
 <body>
+
+    {{> header}}
+
     <div class="grid-container">
-    <header>
-        <h1>Registration Form</h1>
-    </header>
-    {{!-- <form class="form-reg" method="POST" action="/action_page.php">  --}}
-    <form class="form-reg" method="POST" action="/users/register" 
-    enctype="application/x-www-form-urlencoded"> 
 
-        <fieldset>
-            <!-- <legend>Registration Form</legend> -->
-            <label>User Name</label>
-            <input id = "username" class = "text-input reg-input-username" type="text"
-            pattern="[A-Za-z].{3,}" title="Three or more characters"
-            placeholder="User Name" name="username" required>
-            <br />
-            <label>Email</label>
-            <input id = "email" class = "text-input reg-input-email" type="email"
-            placeholder="Email" required name ="email">
-            <br />
-            <label>Password</label>
-            <input id = "password" class = "text-input reg-input-password" type="text"
-            pattern="(?=.*\d)(?=.*[A-Z])(?=.*[/*-+!@#$^&*]).{8,}" title="Must contain at least one number and one uppercase letter, and at least 8 or more characters"
-            placeholder="Password" onkeyup='check();' required name ="password">
-            <br />
-            <label>Confirm Password</label>
-            <input id = "cpassword" class = "text-input reg-input-cpassword" type="text"
-            placeholder="Comfirm Password" onkeyup='check();' required name ="cpassword">
-            <!-- <span id='message'></span> -->
-        </fieldset>
-   
-        <br>
-        <div class="checkage">
-            <label>
-                <input id = "age" type="checkbox" value ="Accept" required/> You must be 13+ years of old    
-            </label>
-        </div>
-        <br>
-        <div class="rules">
-            <label>
-                <input id="id" type="checkbox" required/> Privacy rules
-            </label>            
-            <a href="">TOS</a> and <a href="">Privacy rules</a> to continue
-        </div>
+        <header>
+            <h1>Registration Form</h1>
+        </header>
 
-        <br>
-        <input id="submit" type="submit" value="Submit" >
-        <input id="reset" type="reset" value="Cancel">
-    </form>
+        <form class="form-reg" method="POST" action="/users/register" enctype="application/x-www-form-urlencoded">
+
+            <fieldset>
+                <!-- <legend>Registration Form</legend> -->
+                <label>User Name</label>
+                <input id="username" class="text-input reg-input-username" type="text" pattern="[A-Za-z].{3,}"
+                    title="Three or more characters" placeholder="User Name" name="username" required>
+                <br />
+                <label>Email</label>
+                <input id="email" class="text-input reg-input-email" type="email" placeholder="Email" required
+                    name="email">
+                <br />
+                <label>Password</label>
+                <input id="password" class="text-input reg-input-password" type="text"
+                    pattern="(?=.*\d)(?=.*[A-Z])(?=.*[/*-+!@#$^&*]).{8,}"
+                    title="Must contain at least one number and one uppercase letter, and at least 8 or more characters"
+                    placeholder="Password" onkeyup='check();' required name="password">
+                <br />
+                <label>Confirm Password</label>
+                <input id="cpassword" class="text-input reg-input-cpassword" type="text" placeholder="Comfirm Password"
+                    onkeyup='check();' required name="cpassword">
+                <!-- <span id='message'></span> -->
+            </fieldset>
+
+            <br>
+            <div class="checkage">
+                <label>
+                    <input id="age" type="checkbox" value="Accept" required /> You must be 13+ years of old
+                </label>
+            </div>
+            <br>
+            <div class="rules">
+                <label>
+                    <input id="id" type="checkbox" required /> Privacy rules
+                </label>
+                <a href="">TOS</a> and <a href="">Privacy rules</a> to continue
+            </div>
+
+            <br>
+            <input id="submit" type="submit" value="Submit">
+            <input id="reset" type="reset" value="Cancel">
+        </form>
     </div>
 
     <div id="message">
@@ -64,8 +72,9 @@
         <p id="capital" class="invalid">At least <b>1 upper case</b> letter</p>
         <p id="number" class="invalid">At least <b>1 number</b></p>
         <p id="characters" class="invalid">Contain <b>1 of the following characters</b> ( / * - + ! @ # $ ^ & * )</p>
- 
+
     </div>
-    
+
 </body>
+
 </html>

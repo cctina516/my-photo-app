@@ -1,9 +1,13 @@
+{{> banner}}
+
+
 <nav id="nav-bar">
     <div id="brand" class="nav-items">
         <ul class="nav nav-pills">
             <li class="nav-item">
                 <a class="btn btn-primary btn-sm" href='/' role="button">Home</a>
             </li>
+
             <li class="nav-item">
                 <a class="btn btn-primary btn-sm" href='/postimage' role="button">Post</a>
             </li>
@@ -13,9 +17,6 @@
                 <button id="search-button" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
 
-            {{#if logged}}
-            <a id="logout-button" class="authenticate-button nav-items anchor-buttons">Log Out</a>
-            {{else}}
             <li class="nav-item">
                 <a class="btn btn-primary btn-sm" href='/login' role="button">Login</a>
             </li>
@@ -23,21 +24,3 @@
         </ul>
     </div>
 </nav>
-
-
-
-
-{{!-- <nav id="nav-bar">
-    <div id="brand" class="nav-items">
-        <a href="/" id="brand-anchor"><span id="brand-text"><i style="margin-right: .2rem;">i</i>i>PA</i></span></a>
-    </div>
-    <input id="search-text" name="search-text" type="text">
-    <i id="text-bar-icon" class="fas fa-search nav-items"></i>
-    <a href="/postimage" id="post-button" class="nav-items anchor-buttons">Post</a>
-
-    {{#if logged}}
-    <a id="logout-button" class="authenticate-button nav-items anchor-buttons">Log Out</a>
-    {{else}}
-    <a href="/login" id="login-button" class="authenticate-button nav-items anchor-buttons">Log In</a>
-
-</nav> --}}

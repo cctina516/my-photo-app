@@ -11,9 +11,8 @@
 </head>
 
 <body>
-    <div class="jumbotron text-center">
-        <h1 class="display-4">Photo App</h1>
-    </div>
+    {{> header}}
+
     <div id="post-container" class="grid-container">
         <div id="photo-container">
             <div id="post-title" class="display-6 font-weight-bold">{{currentPost.title}}</div>
@@ -25,41 +24,25 @@
             <div id="post-description" class="lead">{{currentPost.description}}</div>
             <img id="post-image" class="img-fluid" src="/{{currentPost.photopath}}" alt="A photo should have been here">
         </div>
-        {{!-- <img id="image-post-image" src="/{{currentPost.photopath}}">
-        <div id="info-message-grid">
-            <div id="info">
-                <header id="image-post-title">
-                    <h2 id="image-post-title-text">{{currentPost.title}}</h2>
-                </header>
-                <div id="image-post-author" class="info-tags">{{currentPost.username}}</div>
-                <div id="image-post-date" class="info-tags">{{currentPost.created}}</div>
-                <div id="image-post-desc" class="info-tags">{{currentPost.description}}</div>
+
+        <div id="comment-container">
+            <div id="messages">
+                {{#each currentPost.comments}}
+                {{> comment this}}
+                {{/each}}
+            </div>
+
+            <div id="comment-box">
+                <textarea id="comment-box-text" class="form-control" aria-label="With textarea"
+                    placeholder="Enter Comment Here!"></textarea>
+                <span id="comment-box-button" class="input-group-text"><svg width="1em" height="1em" viewBox="0 0 16 16"
+                        class="bi bi-chat-square-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                    </svg></span>
+                {{!-- aria-hidden="true" sytle="text-align: center;"></i> --}}
             </div>
         </div>
-    </div> --}}
-    <div id="comment-container">
-        <div id="messages">
-            {{#each currentPost.comments}}
-            {{> comment this}}
-            {{/each}}
-        </div>
-        {{!-- <header id="comment-title">
-            <h2>Comments</h2>
-        </header>
-        <div id="message-list"> --}}
-
-            {{!-- </div> --}}
-        <div id="comment-box">
-            <textarea id="comment-box-text" class="form-control" aria-label="With textarea"
-                placeholder="Enter Comment Here!"></textarea>
-            <span id="comment-box-button" class="input-group-text"><svg width="1em" height="1em" viewBox="0 0 16 16"
-                    class="bi bi-chat-square-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" 
-                        d="M2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
-                </svg></span>
-            {{!-- aria-hidden="true" sytle="text-align: center;"></i> --}}
-        </div>
-    </div>
 
     </div>
     <script>
@@ -72,7 +55,7 @@
         function addMessage(data) {
             let template = document.createElement('template');
             template.innerHTML =
-            `<div id="message-${data.commentId}">
+                `<div id="message-${data.commentId}">
              <strong class="author-text">@${data.username}</strong>
              <span class="date-posted">${new Date().toLocaleString()}</span>
             <div class="comment-text">${data.comment}</div>
@@ -84,7 +67,7 @@
             let commentText = document.getElementById('comment-box-text').value;
             let postId = document.location.pathname.match(/\d+/g).map(Number)[0];
 
-            if(!commentText){
+            if (!commentText) {
                 return;
             }
 
@@ -98,17 +81,17 @@
                     postId, postId
                 })
             }
-                fetch('/comments/create', fetchOptions)
+            fetch('/comments/create', fetchOptions)
                 .then((response) => response.json())
                 .then((data) => {
-                    if(data.code == 1){
+                    if (data.code == 1) {
                         addMessage(data);
-                    }else{
+                    } else {
                         addFlashFromFrontEnd(data.message, data.status);
                     }
                 })
                 .catch(err => console.log(err));
-            
+
         }
     </script>
 
