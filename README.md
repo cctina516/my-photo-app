@@ -23,5 +23,5 @@ Please follow the instructions below and fill in the information requested when 
 2. npm install
 
 ## Run Instructions
-1. npm start
-2. 
+1. cd into application 
+2. npm start
